@@ -23,28 +23,32 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 </head>
 <body>
+  {% if error %}
+    <p>{{ error }}</p>
+  {% endif %}
   <!-- main -->
   <div class="main-w3layouts wrapper">
-    <h1>Creative SignUp Form</h1>
+    <h1>SignUp Form</h1>
     <div class="main-agileinfo">
       <div class="agileits-top">
         <form action="{% url 'signup' %}" method="post">
+          {% csrf_token %}
           <input class="text" type="text" name="username" placeholder="Username" required="">
           <input class="text w3lpass" type="password" name="password1" placeholder="Password" required="">
           <input class="text w3lpass" type="password" name="password2" placeholder="Confirm Password" required="">
-          <input class="text w3lpass" type="text" name="address" placeholder="Your Address"  >
-          <input class="text w3lpass" type="text" name="phone" placeholder="Your Phone number"  >
+          <input class="text w3lpass" type="text" name="address" placeholder="Your Address"  required="">
+          <input class="text w3lpass" type="text" name="phone" placeholder="Your Phone number" required="" >
           <div class="wthree-text">
 
             <!-- Default checked -->
             <div class="container">
               <label class="radio-inline">
-                <input type="radio" name="optradio" checked>Teacher
+                <input type="radio" name="type" value='teacher'>Teacher
               </label>
             </div>
             <div class="container">
               <label class="radio-inline">
-                <input type="radio" name="optradio">Student
+                <input type="radio" name="type" value="student">Student
               </label>
             </div>
 
