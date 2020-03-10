@@ -5,6 +5,9 @@
     <title></title>
   </head>
   <body>
+    {% if request.session %}
     <h2>Welcome Teacher {{user.name}}</h2>
+    <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
   </body>
 </html>

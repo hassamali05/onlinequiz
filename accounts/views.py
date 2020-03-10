@@ -45,5 +45,6 @@ def login(request):
 
 
 def logout(request):
-    #if request.method=='Get':
-    return render(request,'accounts/signup.html')
+    del request.session['userID']
+    request.session.flush()
+    return redirect('login')
