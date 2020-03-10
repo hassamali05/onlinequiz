@@ -27,8 +27,17 @@ def signup(request):
 
 
 def login(request):
-    #if request.method=='Get':
-    return render(request,'accounts/signup.html')
+    if request.method=='GET':
+        return render(request,'accounts/login.html')
+    else:
+        try:
+            user = User.objects.all(name=request.POST['username'])
+            if user.password == request.POST['password']:
+                return render(request,'accounts/match.html')
+            else:
+                return render(request,'accounts/login.html',{'error':'User name or password is incorrect'})
+        except:
+            return render(request,'accounts/login.html',{'error':'User name or password is incorrect'})
 
 
 def logout(request):
