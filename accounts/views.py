@@ -31,12 +31,16 @@ def login(request):
         return render(request,'accounts/login.html')
     else:
         try:
-            user = User.objects.all(name=request.POST['username'])
+            user = User.objects.get(name=request.POST['username'])
             if user.password == request.POST['password']:
-                return render(request,'accounts/match.html')
+                request.session['userID']=user.id
+                if user.type==0:
+                    return render(request,'students/student.html',{'user':user})
+                else:
+                    return render(request,'teachers/teacher.html',{'user':user})
             else:
                 return render(request,'accounts/login.html',{'error':'User name or password is incorrect'})
-        except:
+        except User.DoesNotExist:
             return render(request,'accounts/login.html',{'error':'User name or password is incorrect'})
 
 
