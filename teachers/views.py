@@ -4,6 +4,6 @@ from .models import *
 
 # Create your views here.
 def test(request, test_id):
-    tst = Test.objects.filter(id=test_id)[0]
-    questions = Question.objects.filter(test=tst)
+    tst = Test.objects.get(id=test_id)
+    questions = Question.objects.filter(tests=tst)
     return render(request, 'teachers/test.html', {'questions': questions})

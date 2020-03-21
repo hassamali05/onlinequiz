@@ -29,7 +29,7 @@ class Question(models.Model):
     op3 = models.CharField(max_length=200)
     op4 = models.CharField(max_length=200)
     c_op = models.IntegerField('Correct Option', default=1)
-    tests = models.ForeignKey(Test, on_delete=models.CASCADE, default=1)
+    tests = models.ForeignKey(Test, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.question_description[:50]
