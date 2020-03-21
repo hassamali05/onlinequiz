@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+<head>
     <meta charset="utf-8">
     <title></title>
-  </head>
-  <body>
-    {% if request.session %}
-    <h2>Welcome Student {{user.name}}</h2>
+</head>
+<body>
+{% if request.session %}
+    <h2>Welcome Student {{ user.name }}</h2>
     <a href="{% url 'logout' %}">Logout</a>
-    {% endif %}
-  </body>
+{% endif %}
+</body>
 </html>
