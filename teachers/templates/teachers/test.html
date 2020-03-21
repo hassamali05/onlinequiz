@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questions show</title>
+</head>
+<body>
+    {% for q in questions %}
+        <h2> {{ q.question_description }}</h2>
+        <br>
+    {% endfor %}
+</body>
+</html>

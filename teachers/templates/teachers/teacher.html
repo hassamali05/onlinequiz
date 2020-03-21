@@ -8,6 +8,10 @@
 {% if request.session %}
     <h2>Welcome Teacher {{ user.name }}</h2>
     <a href="{% url 'logout' %}">Logout</a>
+    <br><br>
+    {% for t in Test %}
+        <a href="{% url 'test' t.id %}">{{ t.name }}</a><br>
+    {% endfor %}
 {% endif %}
 </body>
 </html>
