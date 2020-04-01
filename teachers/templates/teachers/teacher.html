@@ -7,6 +7,8 @@
 <body>
 {% if request.session %}
     <h2>Welcome Teacher {{ user.name }}</h2>
+    <h3>Welcome Teacher with Id {{ user.id }}</h3>
+    <h3><a href="{% url 'create_quiz' user.id %}">Create a Quiz</a></h3>
     <a href="{% url 'logout' %}">Logout</a>
     <br><br>
     {% for t in Test %}

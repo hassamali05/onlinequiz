@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Quiz</title>
+</head>
+<body>
+<h2>Create a Quiz</h2>
+<form action="#" method="post">
+    {% csrf_token %}
+    <label>Select the subject:</label>
+    <select name="dropdown">
+        {% for s in subjects %}
+            <option value="{{ s.name }}"> {{ s.name }} </option>
+        {% endfor %}
+    </select>
+    <br>
+    <h4><a href="{% url 'add_subject' %}">Add new subject</a></h4>
+    <br>
+    <label>Give name of the Quiz</label>
+    <input type="text" name="name"/>
+    <br>
+    <label>Give each question's marks</label>
+    <input type="text" name="each_questions_marks"/>
+    <br>
+    <label>Enter Total number of Questions</label>
+    <input type="text" name="total_questions"/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

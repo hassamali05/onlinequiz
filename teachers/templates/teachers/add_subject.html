@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Subject</title>
+</head>
+<body>
+<div>
+    <h4>
+        {% if error %}
+            {{ error }}
+        {% endif %}
+    </h4>
+</div>
+<form method="post" action="{% url 'add_subject' %}">
+    {% csrf_token %}
+    <label for="Subject_Name">Enter The name of new Subject</label>
+    <input type="text" name="subject_name" value="Subject Name"/>
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
